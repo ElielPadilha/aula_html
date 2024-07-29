@@ -1,0 +1,128 @@
+do  frasco  importar  frasco
+
+aplicativo  =  Flask ( __nome__ )
+
+@ app . route ( "/inicio" )
+def  inicio ():
+    return ( "<h1>Título do meu Site</h1> <p>Este é um parágrafo</p>" )
+
+@ app . rota ( "/lista" )
+def  listar_livros ():
+    retornar  """ <!DOCTYPE html>
+<html>
+    <cabeçalho>
+        <link rel="folha de estilo" href="bootstrap.css" />
+        <título>
+            Biblioteca Senai
+        </título>
+    </cabeçalho>
+    <corpo>
+        <h1>Lista de livros</h1>
+        <p>Página para listar os Livros da Biblioteca do Senai</p>
+        <table class="table table-striped table-hover">
+            <thead class="thead-padrão">
+            <tr>
+                <th>Livro</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Categoria</th>
+                <th>Ativo</th>
+            </tr>
+        </thead>
+        <corpo>
+            <tr>
+                <td>Código Limpo</td>
+                <td>Robert Cecil Martin</td>
+                <td>2012</td>
+                <td>Programação</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>Refatoração: Aperfeiçoando o Design de Códigos Existentes</td>
+                <td>Martin Fowler, Kent Beck</td>
+                <td>1999</td>
+                <td>Projetos</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>Padrões de Design: Elementos de Orientação a Objetos Reutilizáveis</td>
+                <td>Erich Gamma</td>
+                <td>1994</td>
+                <td>Programação</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>O Programador Apaixonado: Construindo uma carreira </td>
+                <td>Chad Fowler</td>
+                <td>2014</td>
+                <td>Programação</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>O universo da programação: Um guia de carreira em desenvolvimento de software</td>
+                <td>William Oliveira</td>
+                <td>2018</td>
+                <td>Auto Ajuda</td>
+                <td>Sim</td>
+            </tr>
+        </tcorpo>
+        </tabela>
+        
+        
+    </corpo>
+</html>
+"""
+
+aplicativo . executar ()
+  67 alterações: 64 adições e 3 exclusões67 
+livros.py
+Número da linha do arquivo original	Número da linha de diferença	Mudança de linha diferencial
+@@ -1,8 +1,69 @@
+importar  pandas  como  pd 
+
+df  =  pd . read_csv ( "tabela_livros.csv" )
+imprimir ( df )
+
+livro_novo  = { "Título do Livro" :[ "Python para Todos" ],
+"Autor" :[ "Charles Severance" ], "Categoria" :[ "Programação" ],
+"Ano de Publicação" : [ 2016 ], "Ativo" : [ "Verdadeiro" ]}
+
+novo_livro  =  pd . DataFrame ( livro_novo )
+
+
+imprimir ( novo_livro )
+
+# Exercício 1
+imprimir ( "Exercício 2" )
+#df.append(livro, ignore_index=True)
+imprimir ( novo_livro )
+# Exercício 2
+livros_programacao  =  df [ df [ "Categoria" ] ==  "Programação" ]
+imprimir ( "Exercício 2" )
+print ( "Livros de Programação" , livros_programacao )
+
+
+"""df_filtrado = df[df["Ano de Publicação"] == 1993]
+imprimir(df_filtrado)"""
+##
+
+# Exercício 3
+df . loc [ df [ "Titulo do Livro" ] == "O Alquimista" , "Ativo" ] =  False
+print ( "Exercício 3" , df [ df [ "Título do Livro" ] == "O Alquimista" ])
+
+
+# Exercício 4
+df_ordenado  =  df . sort_values ​​( by = "Ano de Publicação" )
+imprimir ( "Exercício 4" )
+imprimir ( df_ordenado )
+
+#Exercício 5
+def  imprimir_livros_por_categoria ( dataframe , categoria ):
+    filtro_categoria  =  dataframe [ dataframe [ 'Categoria' ] ==  categoria ]
+    para  índice , livro  em  filtro_categoria . iterrows ():
+        imprimir (
+            f"Título: { livro [ 'Título do Livro' ] } , Autor: { livro [ 'Autor' ] } , Categoria: { livro [ 'Categoria' ] } , Ano: { livro [ 'Ano de Publicação' ] } , Ativo: { livro [ 'Ativo' ] } "
+        )
+
+imprimir ( "Exercício 5" )
+imprimir_livros_por_categoria ( df , "Ficção" )
